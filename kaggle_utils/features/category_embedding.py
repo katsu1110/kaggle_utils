@@ -204,7 +204,7 @@ class CategoryUser2VecWithW2V(CategoryUser2Vec):
         features = self.aggregate_documents(documents, vocab_vectors)
 
         # merge
-        df = df.merge(feature, on='__user_id', how='left').reset_index(drop=True)[self.columns]
+        df = df.merge(features, on='__user_id', how='left').reset_index(drop=True)[self.columns]
         self.features = [df]
         dataframe = pd.concat([dataframe, df], axis=1)
         
